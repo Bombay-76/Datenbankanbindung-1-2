@@ -7,11 +7,6 @@ import mariadb, sys
 
 class Datenbank():#Class
     def __init__(self):
-        self.artikelnummer = None
-        self.Lieferant = None
-        self.Artikelname = None
-        self.Preis = None
-        self.Lagerbestand = None
         self.sqleingabe = None
         self.anrede = None
 
@@ -28,19 +23,19 @@ except mariadb.Error as e:
 
 cur = conn.cursor()
 
-# Anrede-Liste (zum Zwischenspeichern)
+#AnredeListe
 anrede_liste = []
 
-# Funktion spreichern
+#Funktion spreichern
 def anrede_speichern():
     eingabe = entry.get()
-    if eingabe.strip() == "":
-        messagebox.showwarning("Fehler", "Bitte eine Anrede eingeben.")
+    if eingabe.strip() == None:
+        messagebox.showwarning("Bitte eine Anrede eingeben.")
         return
 
 #speichern
     anrede_liste.append(eingabe)
-
+    
     try:
         cur.execute("INSERT INTO anrede (anrede) VALUES (?)", (eingabe,))
         conn.commit()

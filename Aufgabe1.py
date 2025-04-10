@@ -12,7 +12,6 @@ class Datenbank():#Class
         self.Preis = None
         self.Lagerbestand = None
         self.sqleingabe = None
-        self.anrede = None
 
 #Datenbank
 try:#connect
@@ -26,7 +25,5 @@ try:#connect
 except mariadb.Error as e:
     print(f"Error connecting to MariaDB PLatform: {e}")
     sys.exit(1)
-
-
 
 cur = conn.cursor()
