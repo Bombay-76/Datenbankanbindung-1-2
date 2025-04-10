@@ -32,14 +32,11 @@ root.geometry('%dx%d+%d+%d' % (w,h,x,y))
 root = tk.Tk()
 root.title("Beispiel")
 
-# StringVar für den Text
 eingabe_var = tk.StringVar()
 
-# Entry-Feld
 entry = tk.Entry(root, textvariable=eingabe_var)
 entry.pack(pady=10)
 
-#Datenbank
 try:#connect
     conn = mariadb.connect(
         user = "LNRD",
